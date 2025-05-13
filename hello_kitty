@@ -1,0 +1,19 @@
+def isIterable(obj):
+    """Перевірка, чи підтримує об'єкт ітераційний протокол."""
+    try:
+        iterator = iter(obj)
+        return hasattr(iterator, '__next__')
+    except TypeError:
+        return False
+
+
+if __name__ == "__main__":
+    lst = construct()
+    for obj in lst:
+        if isIterable(obj):
+            print(f"Об'єкт {type(obj)} підтримує ітерацію. Вміст:")
+            for it in obj:
+                print(it)
+            print("-" * 30)
+        else:
+            print(f"Об'єкт {type(obj)} не підтримує ітерацію.")
